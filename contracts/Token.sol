@@ -167,22 +167,23 @@ contract Token is ERC721A, Ownable, ReentrancyGuard {
 
         uint256 balance = address(this).balance;
 
-        uint256 v1 = 3.5 * 10**18;
-        uint256 v2 = 0.5 * 10**18;
-        uint256 v3 = balance - v1 - v2;
+        // uint256 v1 = 3.5 * 10**18;
+        // uint256 v2 = 0.5 * 10**18;
+        // uint256 v3 = balance - v1 - v2;
+        // uint256 v1 = balance;
 
         balanceWithdrawn = true;
 
-        (bool success1, ) = payable(0xFcda4EE4E98F3d25CB2F4e3C164deAF277372f35)
-            .call{value: v1}("");
-        (bool success2, ) = payable(0xb811EC5250796966f1400C8e30E5e8A2bC44a068)
-            .call{value: v2}("");
-        (bool success3, ) = payable(0xe9EAA95B03f40F13C5609b54e40C155e6f77f648)
-            .call{value: v3}("");
+        (bool success1, ) = payable(0x36d8d59611e74EA778EfE4B3a3203Cb88070B355)
+            .call{value: balance}("");
+        // (bool success2, ) = payable(0xb811EC5250796966f1400C8e30E5e8A2bC44a068)
+        //     .call{value: v2}("");
+        // (bool success3, ) = payable(0xe9EAA95B03f40F13C5609b54e40C155e6f77f648)
+        //     .call{value: v3}("");
 
         require(success1, "Transfer 1 failed.");
-        require(success2, "Transfer 2 failed.");
-        require(success3, "Transfer 3 failed.");
+        // require(success2, "Transfer 2 failed.");
+        // require(success3, "Transfer 3 failed.");
     }
 
     function setBaseURI(string calldata newBaseURI) external onlyOwner {
