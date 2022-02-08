@@ -1,7 +1,7 @@
 {
   "name": "nfta-tpl",
   "scripts": {
-    "flatten": "./node_modules/.bin/poa-solidity-flattener ./contracts/tokens/ERC721A.sol",
+    "flatten": "./node_modules/.bin/poa-solidity-flattener ./contracts/Token.sol",
     "flat": "hardhat flatten ./contracts/Token.sol > ./contracts/Token-flat.sol"
   },
   "devDependencies": {
